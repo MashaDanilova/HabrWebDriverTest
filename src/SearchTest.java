@@ -16,17 +16,17 @@ class SearchTest {
        driver.get("https://duckduckgo.com/");
        DuckDuckSearchPage page = PageFactory.initElements(driver, DuckDuckSearchPage.class);
        page.searchFor("habrahabr");
-       // открываем первую ссылку
+       // РѕС‚РєСЂС‹РІР°РµРј РїРµСЂРІСѓСЋ СЃСЃС‹Р»РєСѓ
        driver.findElement(By.xpath("//*[@id='r1-0']/div/h2/a[1]")).click();
-       // открываем песочницу
+       // РѕС‚РєСЂС‹РІР°РµРј РїРµСЃРѕС‡РЅРёС†Сѓ
        driver.findElement(By.xpath("//*[@id=\"navbar-links\"]/li[6]/a")).click();
-       // переходим на вторую страницу песочницы
+       // РїРµСЂРµС…РѕРґРёРј РЅР° РІС‚РѕСЂСѓСЋ СЃС‚СЂР°РЅРёС†Сѓ РїРµСЃРѕС‡РЅРёС†С‹
        driver.findElement(By.xpath("//*[@id=\"nav-pagess\"]/li[2]/a")).click();
-       // находим элемент, "содержащий" первую статью на странице
+       // РЅР°С…РѕРґРёРј СЌР»РµРјРµРЅС‚, "СЃРѕРґРµСЂР¶Р°С‰РёР№" РїРµСЂРІСѓСЋ СЃС‚Р°С‚СЊСЋ РЅР° СЃС‚СЂР°РЅРёС†Рµ
        WebElement titleEl = driver.findElement(By.xpath("//*[@id=\"post_131901\"]/h2/a"));
-       // запоминаем название статьи
+       // Р·Р°РїРѕРјРёРЅР°РµРј РЅР°Р·РІР°РЅРёРµ СЃС‚Р°С‚СЊРё
        String title = titleEl.getText();
-       // запоминаем url статьи
+       // Р·Р°РїРѕРјРёРЅР°РµРј url СЃС‚Р°С‚СЊРё
        String titleHabrUrl = titleEl.getAttribute("href");
        
        if (titleHabrUrl.contains("/ru/"))
@@ -36,12 +36,12 @@ class SearchTest {
        
        driver.get("https://duckduckgo.com/");
        DuckDuckSearchPage npage = PageFactory.initElements(driver, DuckDuckSearchPage.class);
-       // ищем в поисковике название статьи
+       // РёС‰РµРј РІ РїРѕРёСЃРєРѕРІРёРєРµ РЅР°Р·РІР°РЅРёРµ СЃС‚Р°С‚СЊРё
        npage.searchFor(title);
        
-       // ищем в результатах поиска первой страницы нужную нам статью
+       // РёС‰РµРј РІ СЂРµР·СѓР»СЊС‚Р°С‚Р°С… РїРѕРёСЃРєР° РїРµСЂРІРѕР№ СЃС‚СЂР°РЅРёС†С‹ РЅСѓР¶РЅСѓСЋ РЅР°Рј СЃС‚Р°С‚СЊСЋ
        WebElement duckSearch = driver.findElement(By.partialLinkText(title.substring(0, 15)));
-       // запоминаем url найденной статьи
+       // Р·Р°РїРѕРјРёРЅР°РµРј url РЅР°Р№РґРµРЅРЅРѕР№ СЃС‚Р°С‚СЊРё
        String titleDuckUrl = duckSearch.getAttribute("href");
        duckSearch.click();       
        

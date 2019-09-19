@@ -1,9 +1,9 @@
 import org.openqa.selenium.WebElement;
 
 public class DuckDuckSearchPage {
-	// строка поиска
+	// СЃС‚СЂРѕРєР° РїРѕРёСЃРєР°
 	private WebElement search_form_input_homepage;
-    // метод поиска информации в поисковой строке
+    // РјРµС‚РѕРґ РїРѕРёСЃРєР° РёРЅС„РѕСЂРјР°С†РёРё РІ РїРѕРёСЃРєРѕРІРѕР№ СЃС‚СЂРѕРєРµ
     public void searchFor(String text) {
     	search_form_input_homepage.sendKeys(text);
     	search_form_input_homepage.submit();
